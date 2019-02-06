@@ -43,6 +43,6 @@ export function activate(_context: vscode.ExtensionContext) {
 export function deactivate() {
   console.log('\nDeactivating extension');
   if (craftKeyboard) {
-    craftKeyboard.removeAllListeners();
+    craftKeyboard.close();
   }
 }
