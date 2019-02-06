@@ -120,24 +120,24 @@ export default class CraftPlugin {
   private handleRegisterAck(message: RegisterMessage) {
     // Save the session id as this is used for any subsequent communication with Logi Options
     this.sessionId = message.session_id;
-    this.emitter.emit('connect:done');
+    this.emitter.emit('connect:done', message);
   }
 
   private handleCrownTurn(message: CrownTurnMessage) {
     this.emitter.emit('crown:turn', message);
     if (message.ratchet_delta > 0) {
-      this.emitter.emit('crown:turn:positive');
+      this.emitter.emit('crown:turn:positive', message);
     } else if (message.ratchet_delta < 0) {
-      this.emitter.emit('crown:turn:negative');
+      this.emitter.emit('crown:turn:negative', message);
     }
   }
 
   private handleCrownTouch(message: CrownTouchMessage) {
     this.emitter.emit('crown:touch', message);
     if (message.touch_state === 0) {
-      this.emitter.emit('crown:touch:released');
+      this.emitter.emit('crown:touch:released', message);
     } else if (message.touch_state === 1) {
-      this.emitter.emit('crown:touch:touched');
+      this.emitter.emit('crown:touch:touched', message);
     }
   }
 
@@ -162,12 +162,12 @@ export default class CraftPlugin {
     this.ws.close();
   }
 
-  public removeAllListeners(eventName: CraftPluginEventType) {
-    this.emitter.removeAllListeners(eventName);
+  public removeAllListeners(type: CraftPluginEventType) {
+    this.emitter.removeAllListeners(type);
   }
 
-  public removeListener(eventName: CraftPluginEventType, listener: ListenerFn) {
-    this.emitter.removeListener(eventName, listener);
+  public removeListener(type: CraftPluginEventType, listener: ListenerFn) {
+    this.emitter.removeListener(type, listener);
   }
 }
 
