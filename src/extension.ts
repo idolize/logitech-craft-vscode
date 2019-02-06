@@ -8,7 +8,7 @@ export function activate(_context: vscode.ExtensionContext) {
   function runVsCodeCommandFromSetting(setting: string) {
     const craftConfig = vscode.workspace.getConfiguration('logitechCraft');
     const command = craftConfig.get<string>(setting);
-    if (command && !/^\w+$/.test(command)) {
+    if (command && !/^\s+$/.test(command)) {
       (vscode.commands.executeCommand(command) as Promise<any>)
         .then(() => console.log(`- Executed VSCode command '${command}'`))
         .catch(() => console.error(`- Error: unable to execute VSCode command '${command}'`));
