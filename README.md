@@ -1,15 +1,16 @@
 # Logitech Craft VSCode plugin
 
-Allows you to control your VSCode tabs using the Logitech Craft keyboard crown!
+Allows you to control ANY part of your VS Code editor using the Logitech Craft keyboard crown!
 
 ## Requirements
 
 - Logitech Craft Keyboard
 - Logitech Options software
+- Visual Studio Code
 
 ## Customization
 
-You can customize what VS Code commands are run for various Craft Crown events. To do this, just [open your VSCode user settings](https://code.visualstudio.com/docs/getstarted/settings) and look under "Extensions" -> "Logitech Craft keyboard".
+You can customize what VS Code commands are run for various Craft Crown events. To do this, just [open your VS Code user settings](https://code.visualstudio.com/docs/getstarted/settings) and look under "Extensions" -> "Logitech Craft keyboard".
 
 You can trigger any available VSCode command from these settings. **To find the command you want to use you should do the following**:
 
