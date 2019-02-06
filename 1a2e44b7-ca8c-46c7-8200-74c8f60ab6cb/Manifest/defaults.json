@@ -1,0 +1,29 @@
+{
+    "GUID": "1a2e44b7-ca8c-46c7-8200-74c8f60ab6cb",
+    "info": {
+        "name": "Visual Studio Code",
+		"publisher": "Microsoft",
+        "version": "1.0",
+        "win_name": "Visual Studio Code.exe",
+        "mac_bundle": "Visual Studio Code.app",
+        "mac_path": "/Applications/",
+        "mac_paths": [
+            {
+                "path": "/Applications/Visual Studio Code.app",
+                "mac_minimum_supported_version": "1.0",
+                "mac_maximum_supported_version": "1.*.*"
+            }
+        ]
+    },
+    "crown": {
+        "rotate": {
+            "default_task": "changetoolvalue",
+            "tasks": [
+                "changetoolvalue"
+            ],
+            "short_list": [
+                "changetoolvalue"
+            ]
+        }
+    }
+}

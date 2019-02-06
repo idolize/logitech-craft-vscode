@@ -1,0 +1,38 @@
+{
+    "GUID": "1a2e44b7-ca8c-46c7-8200-74c8f60ab6cb",
+    "tools": [
+        {
+            "name": "TabControl",
+            "enabled": true,
+            "tool_options": [
+                {
+                    "index": 0,
+                    "name": "tabControl",
+                    "image_file_path": "tabs.png",
+                    "enabled": true,
+                    "ratchet_enabled": true
+                }
+            ]
+        },
+        {
+            "name": "NoSelection",
+            "enabled": true,
+            "tool_options": [
+                {
+                    "index": 0,
+                    "name": "tabControl",
+                    "image_file_path": "tabs.png",
+                    "enabled": true,
+                    "ratchet_enabled": true
+                }
+            ]
+        }
+    ],
+    "tasks": [
+        {
+            "name": "changetoolvalue",
+            "win_id": "0x10064",
+            "mac_id": 615
+        }
+    ]
+}
