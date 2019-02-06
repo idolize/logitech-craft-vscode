@@ -42,7 +42,7 @@ interface CrownMessage extends ReceiveMessage {
 
 interface CrownTurnMessage extends CrownMessage {
   message_type: 'crown_turn_event';
-  task_id: string; // 'chanegtoolvalue'
+  task_id: string; // 'changetoolvalue'
   task_options: {
     current_tool: string; // e.g. 'slider'
     current_tool_option: string; // e.g. 'numbers2'
@@ -60,6 +60,15 @@ interface CrownTouchMessage extends CrownMessage {
 }
 
 export type ListenerFn = (message: any) => any;
+export type CraftPluginEventType =
+  | 'connect:begin'
+  | 'connect:done'
+  | 'crown:turn'
+  | 'crown:turn:positive'
+  | 'crown:turn:negative'
+  | 'crown:touch'
+  | 'crown:touch:released'
+  | 'crown:touch:touched';
 
 // https://github.com/Logitech/logi_craft_sdk/blob/master/documentation/Craft_Crown_SDK.md
 export default class CraftPlugin {
@@ -140,11 +149,11 @@ export default class CraftPlugin {
     }
   }
 
-  public on(type: string, listener: ListenerFn) {
+  public on(type: CraftPluginEventType, listener: ListenerFn) {
     this.emitter.on(type, listener);
   }
 
-  public once(type: string, listener: ListenerFn) {
+  public once(type: CraftPluginEventType, listener: ListenerFn) {
     this.emitter.once(type, listener);
   }
 
