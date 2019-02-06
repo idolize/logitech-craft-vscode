@@ -162,12 +162,12 @@ export default class CraftPlugin {
     this.ws.close();
   }
 
-  public removeAllListeners(eventName: string) {
+  public removeAllListeners(eventName: CraftPluginEventType) {
     this.emitter.removeAllListeners(eventName);
   }
 
-  public removeListener(eventName: string, listener: ListenerFn) {
-    this.emitter.removeAllListeners(eventName);
+  public removeListener(eventName: CraftPluginEventType, listener: ListenerFn) {
+    this.emitter.removeListener(eventName, listener);
   }
 }
 
