@@ -2,10 +2,12 @@
 
 ## Folder structure
 
-* This folder contains all of the files necessary for your extension.
-* `package.json` - this is the manifest file in which you declare your extension and command.
-* `src/extension.ts` - this is the main file where you will provide the implementation of your command.
-  * The file exports one main function, `activate`, which is called the very first time your extension is activated.
+* The `/src` folder contains all of the files necessary for the VS Code extension.
+* `package.json` - this is the manifest file in which you declare the extension details.
+* `src/extension.ts` - this is the main file with the implementation of the extension.
+  * The file exports one main function, `activate`, which is called the very first time the extension is activated.
+
+* The other folder (UUID) contains all of the files necessary for the Logitech Options plugin.
 
 ## Running VSCode extension locally
 
