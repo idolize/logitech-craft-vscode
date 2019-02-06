@@ -1,6 +1,8 @@
-# Logitech Craft VSCode plugin
+# Logitech Craft VS Code plugin
 
 Allows you to control ANY part of your VS Code editor using the Logitech Craft keyboard crown!
+
+Contains a VS Code extension you can install as well as a Logitech Options plugin.
 
 ## Requirements
 
