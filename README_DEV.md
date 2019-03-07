@@ -10,6 +10,7 @@
 
 ## Running VSCode extension locally
 
+* Run `npm install` in the root directory to install dependencies
 * Inside VSCode, press `F5` to open a new window with the extension loaded.
 * Set breakpoints in your code inside `src/extension.ts` to debug your extension.
 * Find output from your extension in the debug console.
