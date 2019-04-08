@@ -8,10 +8,10 @@ const stringify = (obj: any) => JSON.stringify(obj);
 
 const sendRegister = () => stringify({
   PID: process.pid,
-  application_version: '1.0', // TODO update this?
+  application_version: '1.0',
   execName: process.title,
   message_type: 'register',
-  plugin_guid: '1a2e44b7-ca8c-46c7-8200-74c8f60ab6cb', // Random UUID
+  plugin_guid: '1a2e44b7-ca8c-46c7-8200-74c8f60ab6cb',
 });
 
 const sendToolChange = (sessionId: string, toolId: string) => stringify({
@@ -70,27 +70,35 @@ export type CraftPluginEventType =
   | 'crown:touch:released'
   | 'crown:touch:touched';
 
+interface CraftPluginOptions {
+  reconnect?: boolean;
+}
+
 // https://github.com/Logitech/logi_craft_sdk/blob/master/documentation/Craft_Crown_SDK.md
 export default class CraftPlugin {
-  private ws: WebSocket;
+  private ws!: WebSocket;
   private emitter: EventEmitter;
   private sessionId: string | undefined;
+  private opts: CraftPluginOptions;
 
-  constructor() {
-    try {
-      this.ws = new WebSocket(LOGITECH_OPTIONS_URL);
-    } catch (e) {
-      console.error('Failed to connect to Logitech Options', e.message);
-      throw e;
-    }
+  constructor({ reconnect = true }: CraftPluginOptions = {}) {
+    this.opts = { reconnect };
     this.emitter = new EventEmitter();
-    // TODO add reconnection attempts on a timer?
     this.connectWithManager();
   }
 
   private connectWithManager() {
+    if (this.ws && this.ws.readyState !== this.ws.CONNECTING && this.ws.readyState !== this.ws.CLOSED) {
+      console.log('Already connected');
+      return;
+    }
+    if (this.ws) {
+      // We are reconnecting so clean up the old instance
+      this.ws.removeAllListeners();
+    }
+    this.ws = new WebSocket(LOGITECH_OPTIONS_URL);
     this.emitter.emit('connect:begin');
-    this.ws.on('open', () => {
+    this.ws.once('open', () => {
       this.sessionId = undefined;
       this.ws.send(sendRegister());
       this.ws.on('message', (data: string) => {
@@ -112,6 +120,15 @@ export default class CraftPlugin {
             this.handleCrownTouch(message as CrownTouchMessage);
           default:
             break;
+        }
+      });
+      this.ws.on('error', (err) => {
+        this.emitter.emit('connect:faled', err);
+        console.error('Failed to connect to Logitech Options', err.message);
+        if (this.opts.reconnect) {
+          setTimeout(() => {
+            this.connectWithManager();
+          }, 2000);
         }
       });
     });
@@ -170,5 +187,3 @@ export default class CraftPlugin {
     this.emitter.removeListener(type, listener);
   }
 }
-
-
