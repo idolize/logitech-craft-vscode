@@ -1,6 +1,7 @@
 {
 	"name": "logitech-craft-vscode",
 	"author": "David Idol",
+	"license": "MIT",
 	"publisher": "idolize",
 	"displayName": "Logitech Craft VSCode plugin",
 	"description": "Control VSCode directly using your Logitech Craft keyboard",
@@ -14,9 +15,10 @@
 		"vscode:prepublish": "npm run compile",
 		"compile": "tsc -p ./",
 		"watch": "tsc -watch -p ./",
+		"lint": "tslint src/*.ts",
 		"publish:vscode": "vsce package && vsce publish",
 		"postinstall": "node ./node_modules/vscode/bin/install",
-		"test": "echo 'No tests'"
+		"test": "npm run lint && echo 'No unit tests'"
 	},
 	"devDependencies": {
 		"@types/mocha": "^2.2.42",
