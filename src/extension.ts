@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import CraftPlugin from './CraftPlugin';
+import { CraftPlugin } from 'logitech-craft-plugin';
 
 let craftKeyboard: CraftPlugin | undefined;
 
@@ -16,7 +16,7 @@ export function activate(_context: vscode.ExtensionContext) {
   }
 
   console.log('Activating connection to Logi Craft...');
-  craftKeyboard = new CraftPlugin();
+  craftKeyboard = new CraftPlugin({ pluginGuid: '1a2e44b7-ca8c-46c7-8200-74c8f60ab6cb' });
   craftKeyboard.on('connect:done', () => {
     console.log('Connected to Craft keyboard');
   });

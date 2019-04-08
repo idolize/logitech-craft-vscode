@@ -25,7 +25,7 @@
 				},
 				"logitechCraft.rightTurn": {
 					"type": "string",
-					"default":"workbench.action.previousEditor",
+					"default": "workbench.action.previousEditor",
 					"description": "The VSCode command to run when the crown is turned to the right one notch."
 				},
 				"logitechCraft.crownTouch": {
@@ -58,6 +58,7 @@
 		"vscode": "^1.1.28"
 	},
 	"dependencies": {
+		"logitech-craft-plugin": "^1.0.0",
 		"ws": "^6.1.3"
 	}
 }
