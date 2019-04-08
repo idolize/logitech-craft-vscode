@@ -5,6 +5,7 @@
 	"displayName": "Logitech Craft VSCode plugin",
 	"description": "Control VSCode directly using your Logitech Craft keyboard",
 	"version": "1.0.0",
+	"repository": "https://github.com/idolize/logitech-craft-vscode",
 	"engines": {
 		"vscode": "^1.30.0"
 	},
