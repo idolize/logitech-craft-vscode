@@ -25,7 +25,7 @@
   * Add this application to the list and hit Continue
 * Test using the crown with VSCode!
 
-## Running VSCode extension locally
+## Running VS Code extension locally
 
 If you want to modify the VS Code extension and test it locally (as opposed to using the version on the Visual Studio Marketplace), then do the following:
 
