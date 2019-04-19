@@ -16,7 +16,7 @@
   * Click enable button for "Developer Mode"
 * Add the plugin JSON files to the Logitech Options resources folder
   * On macOS: copy or symlink the whole folder named 1a2e44b7-ca8c-46c7-8200-74c8f60ab6cb into the `~/Library/Application Support/Logitech/Logitech Options/Plugins` folder.
-  * On Windows: copy or symlink the whole folder named 1a2e44b7-ca8c-46c7-8200-74c8f60ab6cb into the `%ProgramData%/Logishrd/LogiOptionsPlugins` folder (you may have to create this folder -- note that is is different from the "LogiOptions/Plugins" folder).
+  * On Windows: copy or symlink the whole folder named 1a2e44b7-ca8c-46c7-8200-74c8f60ab6cb into the `%ProgramData%\Logishrd\LogiOptionsPlugins` folder (you may have to create this folder -- note that is is different from the "LogiOptions\Plugins" folder).
 * Add development application to Loigtech Options
   * Open Logitech Options and click Craft Keyboard image
   * Click "All Applications" in the top right
