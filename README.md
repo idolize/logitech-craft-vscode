@@ -10,6 +10,13 @@ Contains a VS Code extension you can install as well as a Logitech Options plugi
 - Logitech Options software
 - Visual Studio Code
 
+## Installation
+
+1. Install [the VS Code extension](https://marketplace.visualstudio.com/items?itemName=idolize.logitech-craft-vscode)
+1. Install the Logi Options plugin from the 1a2e44b7-ca8c-46c7-8200-74c8f60ab6cb folder*
+
+> *Note: right now the Logi Options plugin is not officially signed by Logitech, so [you have to put your keyboard into "developer mode"](README_DEV.md) to install it. Hopefully soon this process can be improved.
+
 ## Customization
 
 You can customize what VS Code commands are run for various Craft Crown events. To do this, just [open your VS Code user settings](https://code.visualstudio.com/docs/getstarted/settings) and look under "Extensions" -> "Logitech Craft keyboard".

@@ -6,6 +6,7 @@
         "version": "1.0",
         "win_name": "Code.exe",
         "win_minimum_supported_version": "0.0.0",
+        "win_maximum_supported_version": "2017.0.1",
         "mac_bundle": "Visual Studio Code.app",
         "mac_path": "/Applications/",
         "mac_paths": [
