@@ -21,16 +21,18 @@ Contains a VS Code extension you can install as well as a Logitech Options plugi
 
 You can customize what VS Code commands are run for various Craft Crown events. To do this, just [open your VS Code user settings](https://code.visualstudio.com/docs/getstarted/settings) and look under "Extensions" -> "Logitech Craft keyboard".
 
-You can trigger any available VSCode command from these settings. **To find the command you want to use you should do the following**:
+![Settings Screenshot](assets/screenshot2.png?raw=true "Settings Screenshot")
+
+You can trigger any available VS Code command from these settings. **To find the command you want to use you should do the following**:
 
 1. Open Visual Studio Code
 1. Open the Command Palette (Cmd+Shift+P on Mac, Ctrl+Shirt+P on Windows)
 1. Type "Preferences: Open Keyboard Shortcuts"
 1. Use the top search bar to look through all available commands
 1. Once you find the command you want, note the string listed under the name
-1. Type this string into the VSCode extension setting ("Extensions" -> "Logitech Craft keyboard") for the event you want
+1. Type this string into the VS Code extension setting ("Extensions" -> "Logitech Craft keyboard") for the event you want
 
-Here is a list of some of the available commands (NOTE: this list may be out of date or different on your version of VSCode! To get a more accurate list please follow the steps above):
+Here is a list of some of the available commands (NOTE: this list may be out of date or different on your version of VS Code! To get a more accurate list please follow the steps above):
 
 ```
 setContext
