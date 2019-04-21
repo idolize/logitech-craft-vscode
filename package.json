@@ -3,10 +3,13 @@
 	"author": "David Idol",
 	"license": "MIT",
 	"publisher": "idolize",
-	"displayName": "Logitech Craft VSCode plugin",
-	"description": "Control VSCode directly using your Logitech Craft keyboard",
-	"version": "1.0.0",
-	"repository": "https://github.com/idolize/logitech-craft-vscode",
+	"displayName": "Logitech Craft VS Code plugin",
+	"description": "Control VS Code directly using your Logitech Craft keyboard",
+	"version": "1.0.1",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/idolize/logitech-craft-vscode.git"
+	},
 	"engines": {
 		"vscode": "^1.30.0"
 	},
@@ -34,8 +37,14 @@
 		"ws": "^6.1.3"
 	},
 	"categories": [
+		"Keymaps",
 		"Other"
 	],
+	"icon": "assets/options-icon.png",
+	"galleryBanner": {
+		"color": "#006f86",
+		"theme": "light"
+	},
 	"activationEvents": [
 		"*"
 	],
