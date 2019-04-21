@@ -35,3 +35,7 @@ If you want to modify the VS Code extension and test it locally (as opposed to u
 * Find output from your extension in the debug console.
 * You can relaunch the extension from the debug toolbar after changing code in `src/extension.ts`.
 * You can also reload (`Ctrl+R` or `Cmd+R` on Mac) the VS Code window with your extension to load your changes.
+
+### `logitech-craft-plugin` package
+
+The code for the actual [plugin API interface with Logitech Options was factored out into a separate library](https://github.com/idolize/logitech-craft-plugin). You may need to make changes in that codebase separately.
