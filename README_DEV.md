@@ -23,7 +23,10 @@
   * Scroll to the bottom of the list and click the green bubble with a number next to "Add application" (this green bubble should show up due to the resource folder we added in the last step)
   * Click "Install profiles"
   * Add this application to the list and hit Continue
-* Test using the crown with VSCode!
+
+![Logi Options Screenshot](assets/screenshot1.png?raw=true "Logi Options Screenshot")
+
+* Enjoy using the crown with VSCode!
 
 ## Running VS Code extension locally
 
