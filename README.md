@@ -949,6 +949,6 @@ extension.startServer
 extension.stopServer
 ```
 
-## Local devlopment
+## Local development
 
 Read the [developer guide](README_DEV.md) for information on how to run this plugin locally and contribute changes.
