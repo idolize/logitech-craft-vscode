@@ -1,6 +1,9 @@
 import * as vscode from 'vscode';
 import { CraftPlugin } from 'logitech-craft-plugin';
 
+const ENABLE_LOG = false;
+const log = (message: string) => ENABLE_LOG ? undefined : console.log(message);
+
 let craftKeyboard: CraftPlugin | undefined;
 
 // Extension is activated
@@ -15,25 +18,25 @@ export function activate(_context: vscode.ExtensionContext) {
     }
   }
 
-  console.log('Activating connection to Logi Craft...');
+  log('Activating connection to Logi Craft...');
   craftKeyboard = new CraftPlugin({ pluginGuid: '1a2e44b7-ca8c-46c7-8200-74c8f60ab6cb' });
   craftKeyboard.on('connect:done', () => {
-    console.log('Connected to Craft keyboard');
+    log('Connected to Craft keyboard');
   });
   craftKeyboard.on('crown:turn:positive', () => {
-    console.log('\nCrown turn right');
+    log('\nCrown turn right');
     runVsCodeCommandFromSetting('leftTurn');
   });
   craftKeyboard.on('crown:turn:negative', () => {
-    console.log('\nCrown turn left');
+    log('\nCrown turn left');
     runVsCodeCommandFromSetting('rightTurn');
   });
   craftKeyboard.on('crown:touch:touched', () => {
-    console.log('\nCrown touched');
+    log('\nCrown touched');
     runVsCodeCommandFromSetting('crownTouch');
   });
   craftKeyboard.on('crown:touch:released', () => {
-    console.log('\nCrown released');
+    log('\nCrown released');
     runVsCodeCommandFromSetting('crownRelease');
   });
   // TODO add more tool IDs to the plugin?
@@ -41,7 +44,7 @@ export function activate(_context: vscode.ExtensionContext) {
 
 // Extension is deactivated
 export function deactivate() {
-  console.log('\nDeactivating extension');
+  log('\nDeactivating extension');
   if (craftKeyboard) {
     craftKeyboard.close();
   }
