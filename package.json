@@ -20,6 +20,7 @@
 		"watch": "tsc -watch -p ./",
 		"lint": "tslint src/*.ts",
 		"publish:vscode": "vsce package && vsce publish",
+		"publish:vscode:ci": "vsce package && vsce publish minor -p $VSCE_TOKEN",
 		"postinstall": "node ./node_modules/vscode/bin/install",
 		"test": "npm run lint && echo 'No unit tests'"
 	},
