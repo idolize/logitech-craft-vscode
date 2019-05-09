@@ -41,6 +41,7 @@ jobs:
       - run:
           name: Publish extension
           command: npm run publish:vscode:ci
+      - run: git push origin $CIRCLE_BRANCH
 
 workflows:
   version: 2
