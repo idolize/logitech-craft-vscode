@@ -13,7 +13,7 @@ export function activate(_context: vscode.ExtensionContext) {
     const command = craftConfig.get<string>(setting);
     if (command && !/^\s+$/.test(command)) {
       (vscode.commands.executeCommand(command) as Promise<any>)
-        .then(() => console.log(`- Executed VSCode command '${command}'`))
+        .then(() => log(`- Executed VSCode command '${command}'`))
         .catch(() => console.error(`- Error: unable to execute VSCode command '${command}'`));
     }
   }
