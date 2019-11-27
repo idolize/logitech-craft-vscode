@@ -15,9 +15,11 @@ Contains a VS Code extension you can install as well as a Logitech Options plugi
 ## Installation
 
 1. Install [the VS Code extension](https://marketplace.visualstudio.com/items?itemName=idolize.logitech-craft-vscode)
-1. Install the Logi Options plugin from the 1a2e44b7-ca8c-46c7-8200-74c8f60ab6cb folder*
+1. Enable the Logi Options plugin in the Options application settings
 
-> *Note: right now the Logi Options plugin is not officially signed by Logitech, so [you have to put your keyboard into "developer mode"](README_DEV.md) to install it. Hopefully soon this process can be improved.
+## Local development
+
+Read the [developer guide](README_DEV.md) for information on how to run this plugin locally and contribute changes.
 
 ## Customization
 
@@ -28,7 +30,7 @@ You can customize what VS Code commands are run for various Craft Crown events. 
 You can trigger any available VS Code command from these settings. **To find the command you want to use you should do the following**:
 
 1. Open Visual Studio Code
-1. Open the Command Palette (Cmd+Shift+P on Mac, Ctrl+Shirt+P on Windows)
+1. Open the Command Palette (Cmd+Shift+P on Mac, Ctrl+Shift+P on Windows)
 1. Type "Preferences: Open Keyboard Shortcuts"
 1. Use the top search bar to look through all available commands
 1. Once you find the command you want, note the string listed under the name
@@ -950,7 +952,3 @@ extension.importFromSublime
 extension.startServer
 extension.stopServer
 ```
-
-## Local development
-
-Read the [developer guide](README_DEV.md) for information on how to run this plugin locally and contribute changes.
