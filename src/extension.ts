@@ -1,8 +1,11 @@
 import * as vscode from 'vscode';
 import { CraftPlugin } from 'logitech-craft-plugin';
+import { installManifest } from './installManifest';
 
 const ENABLE_LOG = false;
-const log = (message: string) => ENABLE_LOG ? undefined : console.log(message);
+const log = (...messages: string[]) => ENABLE_LOG ? undefined : console.log(...messages);
+
+const GUID = '1a2e44b7-ca8c-46c7-8200-74c8f60ab6cb';
 
 let craftKeyboard: CraftPlugin | undefined;
 
@@ -18,28 +21,36 @@ export function activate(_context: vscode.ExtensionContext) {
     }
   }
 
-  log('Activating connection to Logi Craft...');
-  craftKeyboard = new CraftPlugin({ pluginGuid: '1a2e44b7-ca8c-46c7-8200-74c8f60ab6cb' });
-  craftKeyboard.on('connect:done', () => {
-    log('Connected to Craft keyboard');
+  installManifest(GUID).then(() => {
+    log('Activating connection to Logi Craft...');
+    craftKeyboard = new CraftPlugin({ pluginGuid: GUID });
+    craftKeyboard.on('connect:done', () => {
+      log('Connected to Craft keyboard');
+    });
+    craftKeyboard.on('connect:failed', (ex) => {
+      log('Failed to connect to Craft keyboard', ex);
+      vscode.window.showWarningMessage(
+        'Unable to connect to Logitech Options. ' +
+        'Make sure you enable the plugin in the Logitech Options settings panel.');
+    });
+    craftKeyboard.on('crown:turn:positive', () => {
+      log('\nCrown turn right');
+      runVsCodeCommandFromSetting('leftTurn');
+    });
+    craftKeyboard.on('crown:turn:negative', () => {
+      log('\nCrown turn left');
+      runVsCodeCommandFromSetting('rightTurn');
+    });
+    craftKeyboard.on('crown:touch:touched', () => {
+      log('\nCrown touched');
+      runVsCodeCommandFromSetting('crownTouch');
+    });
+    craftKeyboard.on('crown:touch:released', () => {
+      log('\nCrown released');
+      runVsCodeCommandFromSetting('crownRelease');
+    });
+    // TODO add more tool IDs to the plugin?
   });
-  craftKeyboard.on('crown:turn:positive', () => {
-    log('\nCrown turn right');
-    runVsCodeCommandFromSetting('leftTurn');
-  });
-  craftKeyboard.on('crown:turn:negative', () => {
-    log('\nCrown turn left');
-    runVsCodeCommandFromSetting('rightTurn');
-  });
-  craftKeyboard.on('crown:touch:touched', () => {
-    log('\nCrown touched');
-    runVsCodeCommandFromSetting('crownTouch');
-  });
-  craftKeyboard.on('crown:touch:released', () => {
-    log('\nCrown released');
-    runVsCodeCommandFromSetting('crownRelease');
-  });
-  // TODO add more tool IDs to the plugin?
 }
 
 // Extension is deactivated

@@ -22,9 +22,11 @@
 		"publish:vscode": "vsce package && vsce publish",
 		"publish:vscode:ci": "vsce package && vsce publish minor -p $VSCE_TOKEN",
 		"postinstall": "node ./node_modules/vscode/bin/install",
+		"vscode:uninstall": "node ./scripts/uninstall.js",
 		"test": "npm run lint && echo 'No unit tests'"
 	},
 	"devDependencies": {
+		"@types/fs-extra": "^8.0.1",
 		"@types/mocha": "^5.2.7",
 		"@types/node": "^12.7.4",
 		"@types/ws": "^6.0.3",
@@ -34,6 +36,7 @@
 		"vscode": "^1.1.36"
 	},
 	"dependencies": {
+		"fs-extra": "^8.1.0",
 		"logitech-craft-plugin": "^1.0.0",
 		"ws": "^7.1.2"
 	},
