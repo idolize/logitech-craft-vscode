@@ -38,7 +38,7 @@ jobs:
           at: ~/repo
       - run: git config user.email "idol@daveidol.com"
       - run: git config user.name "David Idol"
-      - run: ssh-keyscan github.com >> ~/.ssh/known_hosts
+      - run: touch ~/.ssh/known_hosts && ssh-keyscan github.com >> ~/.ssh/known_hosts
       - run:
           name: Publish extension
           command: npm run publish:vscode:ci
