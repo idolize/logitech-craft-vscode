@@ -2,7 +2,7 @@ import * as vscode from 'vscode';
 import { CraftPlugin } from 'logitech-craft-plugin';
 import { installManifest } from './installManifest';
 
-const ENABLE_LOG = false;
+const ENABLE_LOG = true;
 const log = (...messages: string[]) => ENABLE_LOG ? undefined : console.log(...messages);
 
 const GUID = '1a2e44b7-ca8c-46c7-8200-74c8f60ab6cb';
@@ -21,6 +21,7 @@ export function activate(_context: vscode.ExtensionContext) {
     }
   }
 
+  log('hi!');
   installManifest(GUID).then(() => {
     log('Activating connection to Logi Craft...');
     craftKeyboard = new CraftPlugin({ pluginGuid: GUID });
@@ -50,6 +51,8 @@ export function activate(_context: vscode.ExtensionContext) {
       runVsCodeCommandFromSetting('crownRelease');
     });
     // TODO add more tool IDs to the plugin?
+  }).catch(e => {
+    log(e);
   });
 }
 
