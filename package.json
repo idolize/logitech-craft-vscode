@@ -27,7 +27,7 @@
 	},
 	"devDependencies": {
 		"@types/fs-extra": "^8.0.1",
-		"@types/mocha": "^5.2.7",
+		"@types/mocha": "^7.0.0",
 		"@types/node": "^12.12.14",
 		"@types/ws": "^6.0.4",
 		"tslint": "^5.20.1",
