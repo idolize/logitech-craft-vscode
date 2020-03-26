@@ -8,15 +8,13 @@ export const installManifest = async (guid: string) => {
   const isWin = process.platform === 'win32';
   const pluginPath = (isWin ? `%ProgramData%\\Logishrd\\LogiOptionsPlugins\\` :
     `${process.env.HOME}/Library/Application Support/Logitech/Logitech Options/Plugins/`) + guid;
-  try {
-    await fs.stat(pluginPath);
-  } catch (e) {
+  if (!await fs.pathExists(pluginPath)) {
+    await fs.ensureDir(pluginPath);
     await fs.copy(
       path.join(__dirname, `../${guid}`),
       pluginPath,
       {
         overwrite: true,
-        recursive: true,
       }
     );
   }
