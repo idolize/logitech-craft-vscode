@@ -1,6 +1,6 @@
 # Logitech Craft VS Code plugin
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/idolize/logitech-craft-vscode.svg)](https://greenkeeper.io/)
+
 
 Allows you to control ANY part of your VS Code editor using the Logitech Craft keyboard crown!
 
