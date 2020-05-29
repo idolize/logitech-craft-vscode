@@ -5,7 +5,7 @@
 	"publisher": "idolize",
 	"displayName": "Logitech Craft VS Code plugin",
 	"description": "Control VS Code directly using your Logitech Craft keyboard",
-	"version": "1.5.0",
+	"version": "1.6.0",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/idolize/logitech-craft-vscode.git"
@@ -40,7 +40,9 @@
 		"logitech-craft-plugin": "^1.1.1",
 		"ws": "^7.2.5"
 	},
-	"extensionKind": ["ui"],
+	"extensionKind": [
+		"ui"
+	],
 	"categories": [
 		"Keymaps",
 		"Other"
