@@ -36,7 +36,7 @@
 		"vscode": "^1.1.36"
 	},
 	"dependencies": {
-		"fs-extra": "^9.0.0",
+		"fs-extra": "^9.0.1",
 		"logitech-craft-plugin": "^1.1.1",
 		"ws": "^7.2.5"
 	},
